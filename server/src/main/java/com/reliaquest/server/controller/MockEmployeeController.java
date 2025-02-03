@@ -6,9 +6,12 @@ import com.reliaquest.server.model.MockEmployee;
 import com.reliaquest.server.model.Response;
 import com.reliaquest.server.service.MockEmployeeService;
 import jakarta.validation.Valid;
+
 import java.util.List;
 import java.util.UUID;
+
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,6 +40,7 @@ public class MockEmployeeController {
                 .findById(uuid)
                 .map(employee -> ResponseEntity.ok(Response.handledWith(employee)))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(Response.handled()));
+
     }
 
     @PostMapping()

@@ -1,2 +1,8 @@
 spring.application.name: employee-api
-server.port: 8111
+server:
+  port: 8111
+  compression:
+    enabled: true
+external:
+  api:
+    url: http://localhost:8112/api/v1/employee
